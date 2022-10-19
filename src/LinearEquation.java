@@ -36,7 +36,7 @@ public class LinearEquation {
         /* Calculates and returns the y-intercept of the line between (x1, y1) and
            (x2, y2), rounded to the nearest hundredth */
         public double yIntercept() {
-                double b = y1 - (slope() * x1);
+                double b = y1 - ((double)slope() * x1);
                 return (roundedToHundredth(b));
         }
 
@@ -44,7 +44,7 @@ public class LinearEquation {
         /* Calculates and returns the slope of the line between (x1, y1) and
            (x2, y2), rounded to the nearest hundredth */
         public double slope() {
-                double m = (y1 - y2) / (x1 - x2);
+                double m = (double) (y1 - y2) / (x1 - x2);
                 return (roundedToHundredth(m));
         }
 
@@ -54,7 +54,6 @@ public class LinearEquation {
 
             When generating the m value (slope), here are examples of "printable" slopes:
                5, -5, 1/2, 6/8 (reducing not required), 8/5, -2/3, -18/7
-
             Here are non-examples of "printable" slopes:
          1/-2 (should be -1/2), -4/-3 (should be 4/3), 8/4 (should be reduced to 2),
                -12/3 (should be -4), 3/3 (should be 1), -6/6 (should be -1)
@@ -87,7 +86,7 @@ public class LinearEquation {
                                 m = Math.abs(deltaY) + "/" + Math.abs(deltaX);
                         }
                 } else {
-                        if (deltaX != Math.abs(deltaX) || deltaY != Math.abs(deltaY)) { /* if negative */
+                        if (!(deltaX != Math.abs(deltaX) && deltaY != Math.abs(deltaY)) && (deltaX != Math.abs(deltaX) || deltaY != Math.abs(deltaY))) { /* if negative */
                                 m = "-" + Math.abs(deltaY) + "/" + Math.abs(deltaX);
                         } else {
                                 m = Math.abs(deltaY) + "/" + Math.abs(deltaX);
@@ -111,7 +110,7 @@ public class LinearEquation {
                         equation = "Those points are on a horizental line: y = " + y1;
                 }
                 else {
-                        equation = "(" + m + ")" + "x" + b;
+                        equation = "(" + m + ")" + "x" + " + " + b;
                 }
                 return (equation);
         }
@@ -151,8 +150,8 @@ public class LinearEquation {
           */
         public String lineInfo() {
                 String line = "";
-                if (equation().indexOf ("Those points are on a vertical line") == -1 && equation().indexOf ("\"Those points are on a horizental line") == -1){
-                        line = ("The points are: (" + x1 + ", " + y1 + ") and (" + x2 + ", " + y2 + ")" + "\nThe equation of the line between these points is: y = " + equation() + "\nThe slope of this line is: " + slope() + "\nThe y-intercept of the line is: " + yIntercept() + "\nThe distance bettween the two points is: " + distance());
+                if (equation().equals ("0")){
+                        line = ("The points are: (" + x1 + ", " + y1 + ") and (" + x2 + ", " + y2 + ")" + "\nThe equation of the line between these points is: y = " + equation() + "\nThe slope of this line is: " + slope() + "\nThe y-intercept of the line is: " + yIntercept() + "\nThe distance between the two points is: " + distance());
                 }
                 else {
                         line = equation();
@@ -161,6 +160,7 @@ public class LinearEquation {
         }
 
         public static String start() {
+
                 return ("Welcome to the Linear Equation Calculator!");
         }
 }
