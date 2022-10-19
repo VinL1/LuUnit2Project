@@ -36,7 +36,7 @@ public class LinearEquation {
         /* Calculates and returns the y-intercept of the line between (x1, y1) and
            (x2, y2), rounded to the nearest hundredth */
         public double yIntercept() {
-                double b = y1 - ((double)slope() * x1);
+                double b = y1 - (slope() * x1);
                 return (roundedToHundredth(b));
         }
 
@@ -44,7 +44,7 @@ public class LinearEquation {
         /* Calculates and returns the slope of the line between (x1, y1) and
            (x2, y2), rounded to the nearest hundredth */
         public double slope() {
-                double m = (double) (y1 - y2) / (x1 - x2);
+                double m = ((double) (y1 - y2)) / (x1 - x2);
                 return (roundedToHundredth(m));
         }
 
@@ -107,7 +107,7 @@ public class LinearEquation {
                         equation = "Those points are on a vertical line: x = " + x1;
                 }
                 else if (y1 == y2) {
-                        equation = "Those points are on a horizental line: y = " + y1;
+                        equation = "Those points are on a horizontal line: y = " + y1;
                 }
                 else {
                         equation = "(" + m + ")" + "x" + " + " + b;
@@ -132,7 +132,7 @@ public class LinearEquation {
             HINT:  the Math.round method can help with this!
          */
         public double roundedToHundredth(double toRound) {
-                return (Math.round(toRound * 100) / 100);
+                return ((double) Math.round(toRound * 100) / 100);
         }
 
 
@@ -150,12 +150,7 @@ public class LinearEquation {
           */
         public String lineInfo() {
                 String line = "";
-                if (equation().equals ("0")){
-                        line = ("The points are: (" + x1 + ", " + y1 + ") and (" + x2 + ", " + y2 + ")" + "\nThe equation of the line between these points is: y = " + equation() + "\nThe slope of this line is: " + slope() + "\nThe y-intercept of the line is: " + yIntercept() + "\nThe distance between the two points is: " + distance());
-                }
-                else {
-                        line = equation();
-                }
+                line = ("The points are: (" + x1 + ", " + y1 + ") and (" + x2 + ", " + y2 + ")" + "\nThe equation of the line between these points is: y = " + equation() + "\nThe slope of this line is: " + slope() + "\nThe y-intercept of the line is: " + yIntercept() + "\nThe distance between the two points is: " + distance());
                 return line;
         }
 
