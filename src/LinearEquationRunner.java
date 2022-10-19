@@ -18,10 +18,10 @@ public class LinearEquationRunner {
         System.out.println("Enter coordinate 2: \n");
         cord2 = input.nextLine();
 
-        x1 = Integer.parseInt(cord1.substring(cord1.indexOf("("), cord1.indexOf(",")));
-        y1 = Integer.parseInt(cord1.substring(cord1.indexOf(" ", cord1.indexOf(")"))));
-        x2 = Integer.parseInt(cord2.substring(cord2.indexOf("("), cord2.indexOf(",")));
-        y2 = Integer.parseInt(cord2.substring(cord2.indexOf(" ", cord2.indexOf(")"))));
+        x1 = Integer.parseInt(cord1.substring(1, cord1.indexOf(",")));
+        y1 = Integer.parseInt(cord1.substring(cord1.indexOf(",") + 1, cord1.indexOf(")")));
+        x2 = Integer.parseInt(cord2.substring(1, cord2.indexOf(",")));
+        y2 = Integer.parseInt(cord2.substring(cord2.indexOf(",") + 1, cord2.indexOf(")")));
 
         LinearEquation line1 = new LinearEquation (x1, y1, x2, y2);
 

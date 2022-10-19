@@ -111,7 +111,7 @@ public class LinearEquation {
                         equation = "Those points are on a horizental line: y = " + y1;
                 }
                 else {
-                        equation = m + "x" + b;
+                        equation = "(" + m + ")" + "x" + b;
                 }
                 return (equation);
         }
