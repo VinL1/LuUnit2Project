@@ -1,4 +1,3 @@
-import java.math.RoundingMode;
 import java.text.DecimalFormat;
 
 public class LinearEquation {
@@ -86,34 +85,19 @@ public class LinearEquation {
                                 m = Math.abs(deltaY) + "/" + Math.abs(deltaX);
                         }
                 } else {
-                        if (!(deltaX != Math.abs(deltaX) && deltaY != Math.abs(deltaY)) && (deltaX != Math.abs(deltaX) || deltaY != Math.abs(deltaY))) { /* if negative */
+                        if (!(deltaX < 0  && deltaY < 0) && (deltaX < 0 || deltaY < 0)) { /* if negative */
                                 m = "-" + Math.abs(deltaY) + "/" + Math.abs(deltaX);
                         } else {
                                 m = Math.abs(deltaY) + "/" + Math.abs(deltaX);
                         }
                 }
-                if (yIntercept() != (int) (yIntercept())) { /* if decimal */
-                        b = (y1 * deltaX) - (x1 * deltaY) + "/" + deltaX;
-                        if (yIntercept() < 0) { /* if negative */
-                                b = " - " + b;
-                        } else {
-                                b = " + " + b;
-                        }
+                if (yIntercept() < 0) { /* if negative */
+                        b = " - " + yIntercept();
                 } else {
-                        b = yIntercept() + "";
-                }
-
-                if (x1 == x2) {
-                        equation = "Those points are on a vertical line: x = " + x1;
-                }
-                else if (y1 == y2) {
-                        equation = "Those points are on a horizontal line: y = " + y1;
-                }
-                else {
-                        equation = "(" + m + ")" + "x" + " + " + b;
-                }
+                        b = " + " + yIntercept();
+                        }
+                equation = "(" + m + ")x" + b;
                 return (equation);
-        }
 
 
         /* Returns a String of the coordinate point on the line that has the given x value, with
