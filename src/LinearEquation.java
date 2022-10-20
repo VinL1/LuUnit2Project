@@ -79,24 +79,30 @@ public class LinearEquation {
                 String equation;
 
                 if ((slope()) != (int) (slope())) { /* if decimal */
-                        if (deltaX < 0 || deltaY < 0) { /* if negative */
-                                m = "-" + Math.abs(deltaY) + "/" + Math.abs(deltaX);
-                        } else {
-                                m = Math.abs(deltaY) + "/" + Math.abs(deltaX);
-                        }
-                } else {
                         if (!(deltaX < 0 && deltaY < 0) && (deltaX < 0 || deltaY < 0)) { /* if negative */
                                 m = "-" + Math.abs(deltaY) + "/" + Math.abs(deltaX);
                         } else {
                                 m = Math.abs(deltaY) + "/" + Math.abs(deltaX);
                         }
+                } else {
+                        if (!(deltaX < 0 && deltaY < 0) && (deltaX < 0 || deltaY < 0)) { /* if double negative */
+                                m = Math.abs(deltaY) / Math.abs(deltaX) + "";
+                                m = "-" + m;
+                        } else {
+                                m = Math.abs(deltaY) / Math.abs(deltaX) + "";
+                        }
+                        if (m.equals ("1")) {
+                                m = "";
+                        }
                 }
                 if (yIntercept() < 0) { /* if negative */
-                        b = " - " + yIntercept();
-                } else {
+                        b = " - " + Math.abs(yIntercept());
+                } else if (yIntercept() == 0.0) {
+                        b = "";
+                } else{
                         b = " + " + yIntercept();
                 }
-                equation = "(" + m + ")x" + b;
+                equation = m + "x" + b;
                 return (equation);
         }
 

@@ -29,8 +29,6 @@ public class LinearEquationRunner {
 
         if (x1 == x2) {
             System.out.println("The points are on a vertical line: x = " + x1);
-        } else if (y1 == y2) {
-            System.out.println("The points are on a horizental line: y = " + y1);
         } else {
             System.out.println(line1.lineInfo() + "\n");
 
