@@ -85,7 +85,7 @@ public class LinearEquation {
                                 m = Math.abs(deltaY) + "/" + Math.abs(deltaX);
                         }
                 } else {
-                        if (!(deltaX < 0  && deltaY < 0) && (deltaX < 0 || deltaY < 0)) { /* if negative */
+                        if (!(deltaX < 0 && deltaY < 0) && (deltaX < 0 || deltaY < 0)) { /* if negative */
                                 m = "-" + Math.abs(deltaY) + "/" + Math.abs(deltaX);
                         } else {
                                 m = Math.abs(deltaY) + "/" + Math.abs(deltaX);
@@ -95,19 +95,19 @@ public class LinearEquation {
                         b = " - " + yIntercept();
                 } else {
                         b = " + " + yIntercept();
-                        }
+                }
                 equation = "(" + m + ")x" + b;
                 return (equation);
-
+        }
 
         /* Returns a String of the coordinate point on the line that has the given x value, with
            both x and y coordinates as decimals to the nearest hundredth, e.g (-5.0, 6.75) */
-        public String coordinateForX(double xValue) {
-                double y = slope() * xValue + yIntercept();
-                y = roundedToHundredth(y);
-                xValue = roundedToHundredth(xValue);
-                return ("(" + xValue + ", " + y + ")");
-        }
+                public String coordinateForX ( double xValue){
+                        double y = slope() * xValue + yIntercept();
+                        y = roundedToHundredth(y);
+                        xValue = roundedToHundredth(xValue);
+                        return ("(" + xValue + ", " + y + ")");
+                }
 
 
         /* "Helper" method for use elsewhere in your methods; returns the value toRound rounded
@@ -115,9 +115,9 @@ public class LinearEquation {
 
             HINT:  the Math.round method can help with this!
          */
-        public double roundedToHundredth(double toRound) {
-                return ((double) Math.round(toRound * 100) / 100);
-        }
+                public double roundedToHundredth ( double toRound){
+                        return ((double) Math.round(toRound * 100) / 100);
+                }
 
 
         /* Returns a string that includes all information about the linear equation, each on
@@ -132,14 +132,14 @@ public class LinearEquation {
           equation(), slope(), yIntercept(), distance().
 
           */
-        public String lineInfo() {
-                String line = "";
-                line = ("The points are: (" + x1 + ", " + y1 + ") and (" + x2 + ", " + y2 + ")" + "\nThe equation of the line between these points is: y = " + equation() + "\nThe slope of this line is: " + slope() + "\nThe y-intercept of the line is: " + yIntercept() + "\nThe distance between the two points is: " + distance());
-                return line;
-        }
+                public String lineInfo () {
+                        String line = "";
+                        line = ("The points are: (" + x1 + ", " + y1 + ") and (" + x2 + ", " + y2 + ")" + "\nThe equation of the line between these points is: y = " + equation() + "\nThe slope of this line is: " + slope() + "\nThe y-intercept of the line is: " + yIntercept() + "\nThe distance between the two points is: " + distance());
+                        return line;
+                }
 
-        public static String start() {
+                public static String start () {
 
-                return ("Welcome to the Linear Equation Calculator!");
+                        return ("Welcome to the Linear Equation Calculator!");
+                }
         }
-}

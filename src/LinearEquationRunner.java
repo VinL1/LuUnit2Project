@@ -1,8 +1,8 @@
 import java.util.Scanner;
 
 public class LinearEquationRunner {
-    public static void main (String [] args) {
-        Scanner input = new Scanner (System.in);
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
 
         String cord1;
         String cord2;
@@ -25,14 +25,18 @@ public class LinearEquationRunner {
         x2 = Integer.parseInt(cord2.substring(1, cord2.indexOf(",")));
         y2 = Integer.parseInt(cord2.substring(cord2.indexOf(",") + 1, cord2.indexOf(")")));
 
-        LinearEquation line1 = new LinearEquation (x1, y1, x2, y2);
+        LinearEquation line1 = new LinearEquation(x1, y1, x2, y2);
 
         if (x1 == x2) {
-        }
-        System.out.println(line1.lineInfo() + "\n");
+            System.out.println("The points are on a vertical line: x = " + x1);
+        } else if (y1 == y2) {
+            System.out.println("The points are on a horizental line: y = " + y1);
+        } else {
+            System.out.println(line1.lineInfo() + "\n");
 
-        System.out.println("Enter a value for x: \n");
-        newX = input.nextDouble();
-        System.out.println("The point on the line is " + line1.coordinateForX(newX));
+            System.out.println("Enter a value for x: \n");
+            newX = input.nextDouble();
+            System.out.println("The point on the line is " + line1.coordinateForX(newX));
+        }
     }
 }
